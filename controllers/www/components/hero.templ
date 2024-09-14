@@ -1,0 +1,30 @@
+package components
+
+templ Hero() {
+	@Navbar()
+	<section class="hero is-fullheight-with-navbar">
+		<div class="hero-body fix-grid has-2-columns">
+			<div class="grid container is-widescreen">
+				<div class="cell">
+					<div class="block">
+						<h1 class="title centered">
+							Unotone
+						</h1>
+						<h2 class="subtitle">
+							Unotone is a halftone technique applied to duotone effect images
+						</h2>
+					</div>
+					<div class="block buttons">
+						<a href="#create" class="button is-primary">
+							Create image
+						</a>
+						@Github()
+					</div>
+				</div>
+				<div class="cell">
+					<div class="center large">Counter</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
