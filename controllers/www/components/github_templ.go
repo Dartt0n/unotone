@@ -29,7 +29,7 @@ func Github() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://github.com/dartt0n/unotone\" class=\"button is-white\"><span class=\"icon\"><i class=\"fa fa-github\"></i></span> <span>Github</span></a>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://github.com/dartt0n/unotone\" class=\"button is-white\"><span class=\"icon\"><i class=\"fa fa-github\"></i></span> <span>github</span></a>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

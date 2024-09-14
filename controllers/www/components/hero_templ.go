@@ -33,7 +33,7 @@ func Hero() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"hero is-fullheight-with-navbar\"><div class=\"hero-body fix-grid has-2-columns\"><div class=\"grid container is-widescreen\"><div class=\"cell\"><div class=\"block\"><h1 class=\"title centered\">Unotone</h1><h2 class=\"subtitle\">Unotone is a halftone technique applied to duotone effect images</h2></div><div class=\"block buttons\"><a href=\"#create\" class=\"button is-primary\">Create image</a>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"hero is-fullheight-with-navbar\"><div class=\"hero-body fix-grid has-2-columns\"><div class=\"grid container is-widescreen\"><div class=\"cell\"><div class=\"block\"><h1 class=\"title centered\">unotone</h1><h2 class=\"subtitle\">unotone is a halftone technique applied to duotone effect images</h2></div><div class=\"block buttons\"><a href=\"#create\" class=\"button is-white is-light\">enhance your images</a>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -41,7 +41,7 @@ func Hero() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"cell\"><div class=\"center large\">Counter</div></div></div></div></section>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"cell\"><div class=\"center large\">0 images enhanced</div></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
