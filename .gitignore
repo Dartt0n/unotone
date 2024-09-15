@@ -5,3 +5,4 @@ encore.gen.cue
 .DS_Store
 .build
 tmp
+**/font-awesome

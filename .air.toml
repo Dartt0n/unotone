@@ -8,7 +8,7 @@ bin = "./tmp/unotone"
 cmd = """
 go mod tidy && \
 templ generate && \
-npx tailwindcss -i ./controllers/www/static/index.css -o ./controllers/www/static/output.css && \
+npx tailwindcss -i ./controllers/web/static/index.css -o ./controllers/web/static/output.css && \
 go build -ldflags=\"-w -s\" -o ./tmp/unotone cmd/server/main.go
 """
 delay = 1000
