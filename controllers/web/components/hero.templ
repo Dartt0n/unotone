@@ -1,7 +1,7 @@
 package components
 
 templ Hero() {
-	<div class="container mx-auto px-4 py-16">
+	<div id="hero" class="container mx-auto px-4 mt-60 h-screen">
 		<div class="flex flex-wrap -mx-4">
 			<div class="w-full md:w-1/2 px-4">
 				<h1 class="text-4xl md:text-5xl font-bold text-rich-black mb-4">unotone</h1>
@@ -13,16 +13,16 @@ templ Hero() {
 					style images
 				</p>
 				<div class="flex space-x-4">
-					<a href="..." class="button bg-dune text-black border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
+					<a href="#main-page" class="button bg-dune text-black border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
 						enhance images
 					</a>
-					<a href="..." class="button bg-rich-black text-dune border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
+					<a href="#support" class="button bg-rich-black text-dune border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
 						support author
 					</a>
 				</div>
 			</div>
 			<div class="w-full md:w-1/2 px-4 flex item-center justify-center">
-				<div class="text-center">
+				<div class="text-center content-center">
 					<p class="text-6xl md:text-8xl font-bold counter" hx-get="/api/stats/count/images" hx-trigger="load">0</p>
 					<p class="text-lg text-rich-black">images processed</p>
 				</div>
