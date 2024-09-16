@@ -7,3 +7,4 @@ encore.gen.cue
 tmp
 **/font-awesome
 **/static/output.css
+**/*_templ.go
