@@ -6,3 +6,4 @@ encore.gen.cue
 .build
 tmp
 **/font-awesome
+**/static/output.css
