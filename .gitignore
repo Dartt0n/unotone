@@ -8,3 +8,4 @@ tmp
 **/font-awesome
 **/static/output.css
 **/*_templ.go
+node_modules

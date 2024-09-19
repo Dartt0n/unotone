@@ -1,0 +1,12 @@
+.air.toml
+.dockerignore
+**/.build
+**/.DS_Store
+**/.git
+**/.gitignore
+**/*_templ.go
+**/node_modules
+**/tmp
+assets
+LICENSE
+readme.md

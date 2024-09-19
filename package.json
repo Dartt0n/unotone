@@ -1,0 +1,12 @@
+{
+  "name": "unotone",
+  "version": "1.0.0",
+  "description": "unotone is a halftone technique applied to duotone style images",
+  "main": "tailwind.config.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.12"
+  }
+}
