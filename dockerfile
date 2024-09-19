@@ -6,7 +6,7 @@ COPY package.json package-lock.json tailwind.config.js ./
 RUN npm install
 COPY controllers/web/components/*.templ ./controllers/web/components/
 COPY controllers/web/static/index.css ./controllers/web/static/
-RUN npx tailwindcss -i ./controllers/web/static/index.css -o ./controllers/web/static/output.css
+RUN npx tailwindcss -i ./controllers/web/static/index.css -o ./static/output.css
 
 # generate _templ.go files from .templ files
 FROM golang:alpine AS templbuilder
@@ -34,7 +34,8 @@ RUN chmod +x /app/unotone
 # runner image
 FROM scratch
 WORKDIR /app
-COPY --from=gobuilder /build/controllers/web/static /app/controllers/web/static
-COPY --from=tailwindbuilder /build/controllers/web/static/output.css /app/controllers/web/static/output.css
+ENV UNOTONE_STATIC_DIR /var/www/static
+COPY --from=gobuilder /build/controllers/web/static ${UNOTONE_STATIC_DIR}
+COPY --from=tailwindbuilder /build/static/output.css ${UNOTONE_STATIC_DIR}/output.css
 COPY --from=gobuilder /app/unotone /app/unotone
 CMD ["./unotone"]

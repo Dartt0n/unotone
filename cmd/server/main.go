@@ -18,7 +18,7 @@ import (
 type Config struct {
 	Addr      string `koanf:"addr" validate:"required" json:"addr"`
 	StaticDir string `koanf:"static_dir" validate:"required" json:"static_dir"`
-	Debug     bool   `koanf:"debug" validate:"required" json:"debug"`
+	Debug     bool   `koanf:"debug" validate:"" json:"debug"`
 }
 
 func main() {
@@ -26,8 +26,8 @@ func main() {
 	conf := Config{
 		// default options
 		Addr:      ":8080",
-		StaticDir: "/var/www/static",
-		Debug:     false,
+		StaticDir: "./controllers/web/static",
+		Debug:     true,
 	}
 
 	k := koanf.New(".")

@@ -23,7 +23,6 @@ run-pod: podman-build
         --name unotone-server \
         --detach \
         -e UNOTONE_ADDR=0.0.0.0:8080 \
-        -e UNOTONE_STATIC_DIR=./controllers/web/static \
         -e UNOTONE_DEBUG={{ DEBUG }} \
         unotone-server:latest
 
