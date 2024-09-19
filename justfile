@@ -1,11 +1,11 @@
 POD_NAME := "unotone"
+DEBUG := "1"
 
 dev:
     air
 
 tidy:
     go mod tidy
-
 
 podman-build:
     podman build \\
@@ -22,8 +22,13 @@ run-pod: podman-build
         --restart unless-stopped \
         --name unotone-server \
         --detach \
+        -e UNOTONE_ADDR=0.0.0.0:8080 \
+        -e UNOTONE_STATIC_DIR=./controllers/web/static \
+        -e UNOTONE_DEBUG={{ DEBUG }} \
         unotone-server:latest
 
 rm-pod:
     podman pod stop {{ POD_NAME }}
     podman pod rm {{ POD_NAME }}
+
+rerun-pod: rm-pod run-pod
