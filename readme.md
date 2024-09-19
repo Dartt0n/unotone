@@ -15,7 +15,8 @@ What's 'unotone'? It's pretty simple. It's a [halftone technique](https://en.wik
 So basically, it's $\frac{1}{2}$ tone $\times$ 2 tone $= 1$ (uno) tone
 
 ## Preview
-WIP
+Latest release preview is deployed here: [unotone.containers.cloud.ru](https://unotone.containers.cloud.ru)
+<img src="assets/interface.png">
 
 ## Examples
 WIP
