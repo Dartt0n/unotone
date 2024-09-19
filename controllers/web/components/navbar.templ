@@ -1,8 +1,10 @@
 package components
 
+var navBarOnce = templ.NewOnceHandle()
+
 templ Navbar() {
 	<div class="">
-		<nav class="sticky bg-dune text-rich-black w-full z-10 border-2 border-transparent border-b-rich-black">
+		<nav class="fixed top-0 bg-dune text-rich-black w-full z-10 border-2 border-transparent border-b-rich-black">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between h-16">
 					<div class="flex">
@@ -11,12 +13,66 @@ templ Navbar() {
 							<span class="text-2xl font-semibold m-auto text-center">unotone</span>
 						</div>
 					</div>
-					<div class="flex items-center">
+					<div class="hidden md:flex flex-row items-center">
 						<a href="#about" class="px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">about</a>
 						<a href="#main-page" class="px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">try it</a>
 						<a href="#pricing" class="px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">pricing</a>
 						<a href="https://github.com/dartt0n/unotone" class="px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">github</a>
 						<a href="#support" class="px-3 py-2 text-sm font-medium bg-rich-black text-dune border-2 border-dune hover:border-rich-black">support</a>
+					</div>
+					<div class="flex md:hidden flex-row items-center">
+						<a href="#support" class="px-3 py-2 text-center text-sm font-medium bg-rich-black text-dune border-2 border-dune hover:border-rich-black">support</a>
+						<button id="open-navbar-modal" class="focus:outline-none px-3 py-2 text-sm text-rich-black border-dune border-2 hover:border-rich-black" type="button">
+							<div class="w-6 h-1 bg-rich-black mb-1"></div>
+							<div class="w-6 h-1 bg-rich-black mb-1"></div>
+							<div class="w-6 h-1 bg-rich-black"></div>
+						</button>
+						<div id="navbar-modal" class="fixed inset-0 bg-rich-black bg-opacity-50 overflow-y-auto h-full w-full hidden">
+							<div class="relative mx-auto p-5 w-full border-rich-black border-2 bg-dune">
+								<button id="close-navbar-modal" class="absolute top-0 right-0 mt-4 mr-4">
+									<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+									</svg>
+								</button>
+								<div id="navbar-modal-content" class="">
+									<div class="flex flex-col items-center text-center">
+										<span class="text-2xl font-semibold m-auto text-center">unotone</span>
+										<a href="#about" class="navbar-modal-item w-40 px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">about</a>
+										<a href="#main-page" class="navbar-modal-item w-40 px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">try it</a>
+										<a href="#pricing" class="navbar-modal-item w-40 px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">pricing</a>
+										<a href="https://github.com/dartt0n/unotone" class="navbar-modal-item w-40 px-3 py-2 text-sm font-medium bg-dune text-rich-black border-2 border-dune hover:border-rich-black">github</a>
+										<a href="#support" class="navbar-modal-item w-40 px-3 py-2 text-sm font-medium bg-rich-black text-dune border-2 border-dune hover:border-rich-black">support</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<script>
+							(function () {
+								const modal = document.getElementById("navbar-modal");
+								const openModal = document.getElementById("open-navbar-modal");
+								const closeModal = document.getElementById("close-navbar-modal");
+
+								openModal.addEventListener("click", function () {
+									modal.classList.remove("hidden");
+								});
+
+								closeModal.addEventListener("click", function () {
+									modal.classList.add("hidden");
+								});
+
+								window.addEventListener("click", function (e) {
+									if (e.target == modal) {
+										modal.classList.add("hidden");
+									}
+								});
+
+								Array.from(document.getElementsByClassName("navbar-modal-item")).forEach(anchor => {
+									anchor.addEventListener('click', function (e) {
+										modal.classList.add("hidden");
+									});
+								});
+							})();
+						</script>
 					</div>
 				</div>
 			</div>
