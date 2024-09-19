@@ -29,13 +29,17 @@ COPY cmd ./cmd
 COPY controllers ./controllers
 COPY --from=templbuilder /build/controllers/web/components/*_templ.go ./controllers/web/components/
 RUN go build -ldflags="-s -w" -o /app/unotone ./cmd/server/main.go
+RUN go build -ldflags="-s -w" -o /app/healthcheck ./cmd/healthcheck/main.go
 RUN chmod +x /app/unotone
 
 # runner image
-FROM scratch
+FROM alpine
 WORKDIR /app
 ENV UNOTONE_STATIC_DIR /var/www/static
+ENV PATH /app:$PATH
 COPY --from=gobuilder /build/controllers/web/static ${UNOTONE_STATIC_DIR}
 COPY --from=tailwindbuilder /build/static/output.css ${UNOTONE_STATIC_DIR}/output.css
 COPY --from=gobuilder /app/unotone /app/unotone
-CMD ["./unotone"]
+COPY --from=gobuilder /app/healthcheck /app/healthcheck
+HEALTHCHECK --start-period=1s --interval=1m --timeout=3s --retries=3 CMD ["healthcheck"]
+CMD ["unotone"]

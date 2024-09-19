@@ -22,6 +22,11 @@ run-pod: podman-build
         --restart unless-stopped \
         --name unotone-server \
         --detach \
+        --health-cmd 'healthcheck --port 8080' \
+        --health-start-period 1s \
+        --health-interval 1m \
+        --health-timeout 3s \
+        --health-retries 3 \
         -e UNOTONE_ADDR=0.0.0.0:8080 \
         -e UNOTONE_DEBUG={{ DEBUG }} \
         unotone-server:latest
