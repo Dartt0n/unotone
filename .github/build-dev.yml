@@ -1,0 +1,37 @@
+name: unotone dev build
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  push_to_registry:
+    name: Push Docker to repository 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4.1.6
+
+      - name: Log in to artifact storage
+        uses: docker/login-action@v3.1.0
+        with:
+          registry: ${{ secrets.REGISTRY_URL }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.5.1
+        with:
+          images: ${{ secrets.REGISTRY_URL }}/${{ secrets.REGISTRY_IMAGE }}
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v5.3.0
+        with:
+          context: .
+          file: ./dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
