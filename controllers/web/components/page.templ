@@ -12,10 +12,9 @@ templ Page() {
 			<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
 			<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
 			<link rel="stylesheet" href="output.css"/>
-			// <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 			<link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg"/>
 		</head>
-		<body class="bg-dune font-mono">
+		<body class="bg-dune font-mono bg-scroll scroll-smooth">
 			@Navbar()
 			@Hero()
 			@About()
@@ -23,6 +22,16 @@ templ Page() {
 			@Pricing()
 			@Support()
 			@Footer()
+			<script>
+				document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+					anchor.addEventListener('click', function (e) {
+						e.preventDefault();
+						document.querySelector(this.getAttribute('href')).scrollIntoView({
+							behavior: 'smooth'
+						});
+					});
+				});
+			</script>
 		</body>
 	</html>
 }
