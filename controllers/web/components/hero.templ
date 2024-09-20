@@ -2,10 +2,10 @@ package components
 
 templ Hero() {
 	@templ.NewOnceHandle().Once() {
-		<div id="hero" class="container mx-auto px-4 mt-60 h-screen">
+		<div id="hero" class="container mx-auto px-4 mt-48 md:mt-60 h-screen">
 			<div class="flex flex-wrap -mx-4">
 				<div class="w-full md:w-1/2 px-4">
-					<h1 class="text-4xl md:text-5xl font-bold text-rich-black mb-4">unotone</h1>
+					<h1 class="text-6xl text-center md:text-left font-bold text-rich-black mb-4">unotone</h1>
 					<p class="text-lg text-rich-black mb-6">
 						unotone is a
 						<span class="bg-rich-black text-dune bg-clip-border">halftone</span>
@@ -13,7 +13,13 @@ templ Hero() {
 						<span class="bg-rich-black text-dune bg-clip-border">duotone</span>
 						style images
 					</p>
-					<div class="flex space-x-4">
+					<div class="w-full flex md:hidden pt-20 pb-40 md:py-16 md:w-1/2 px-4 item-center justify-center">
+						<div class="text-center content-center">
+							<p class="text-6xl md:text-8xl font-bold counter" hx-get="/api/stats/image/count-pretty" hx-trigger="load">0</p>
+							<p class="text-lg text-rich-black">images processed</p>
+						</div>
+					</div>
+					<div class="flex flex-col py-16 md:py-0 md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 text-center">
 						<a href="#main-page" class="button bg-dune text-black border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
 							enhance images
 						</a>
@@ -22,7 +28,8 @@ templ Hero() {
 						</a>
 					</div>
 				</div>
-				<div class="w-full md:w-1/2 px-4 flex item-center justify-center">
+				// todo: load data only once
+				<div class="w-full hidden md:flex md:w-1/2 px-4 item-center justify-center">
 					<div class="text-center content-center">
 						<p class="text-6xl md:text-8xl font-bold counter" hx-get="/api/stats/image/count-pretty" hx-trigger="load">0</p>
 						<p class="text-lg text-rich-black">images processed</p>
