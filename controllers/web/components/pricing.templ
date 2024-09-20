@@ -1,8 +1,10 @@
 package components
 
 templ Pricing() {
-	<div id="pricing" class="h-screen mx-16 px-4 py-16 bg-dune text-rich-black">
-		<h1 class="text-6xl">pricing</h1>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eum totam commodi temporibus voluptate eligendi soluta praesentium aperiam velit dicta, dolorem doloremque, itaque quasi harum cum asperiores incidunt necessitatibus earum, ducimus optio inventore id! Repellendus inventore doloremque, voluptatibus autem natus rerum nemo enim quaerat ab veritatis nihil? Sit, sed debitis. Eum quos eius facilis assumenda, debitis nesciunt et magnam ullam atque consequatur. Ab autem eligendi amet beatae blanditiis repudiandae inventore quia, possimus quisquam consequatur voluptates exercitationem impedit id architecto minus minima est facilis quod? Eum quaerat nulla, modi, alias iste ipsam assumenda, ipsum veniam eligendi quis tenetur! Doloremque, ex quibusdam.
-	</div>
+	@templ.NewOnceHandle().Once() {
+		<div id="pricing" class="h-screen mx-16 px-4 py-16 bg-dune text-rich-black">
+			<h1 class="text-6xl">pricing</h1>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eum totam commodi temporibus voluptate eligendi soluta praesentium aperiam velit dicta, dolorem doloremque, itaque quasi harum cum asperiores incidunt necessitatibus earum, ducimus optio inventore id! Repellendus inventore doloremque, voluptatibus autem natus rerum nemo enim quaerat ab veritatis nihil? Sit, sed debitis. Eum quos eius facilis assumenda, debitis nesciunt et magnam ullam atque consequatur. Ab autem eligendi amet beatae blanditiis repudiandae inventore quia, possimus quisquam consequatur voluptates exercitationem impedit id architecto minus minima est facilis quod? Eum quaerat nulla, modi, alias iste ipsam assumenda, ipsum veniam eligendi quis tenetur! Doloremque, ex quibusdam.
+		</div>
+	}
 }

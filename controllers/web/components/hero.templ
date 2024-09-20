@@ -1,32 +1,34 @@
 package components
 
 templ Hero() {
-	<div id="hero" class="container mx-auto px-4 mt-60 h-screen">
-		<div class="flex flex-wrap -mx-4">
-			<div class="w-full md:w-1/2 px-4">
-				<h1 class="text-4xl md:text-5xl font-bold text-rich-black mb-4">unotone</h1>
-				<p class="text-lg text-rich-black mb-6">
-					unotone is a
-					<span class="bg-rich-black text-dune bg-clip-border">halftone</span>
-					technique applied to
-					<span class="bg-rich-black text-dune bg-clip-border">duotone</span>
-					style images
-				</p>
-				<div class="flex space-x-4">
-					<a href="#main-page" class="button bg-dune text-black border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
-						enhance images
-					</a>
-					<a href="#support" class="button bg-rich-black text-dune border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
-						support author
-					</a>
+	@templ.NewOnceHandle().Once() {
+		<div id="hero" class="container mx-auto px-4 mt-60 h-screen">
+			<div class="flex flex-wrap -mx-4">
+				<div class="w-full md:w-1/2 px-4">
+					<h1 class="text-4xl md:text-5xl font-bold text-rich-black mb-4">unotone</h1>
+					<p class="text-lg text-rich-black mb-6">
+						unotone is a
+						<span class="bg-rich-black text-dune bg-clip-border">halftone</span>
+						technique applied to
+						<span class="bg-rich-black text-dune bg-clip-border">duotone</span>
+						style images
+					</p>
+					<div class="flex space-x-4">
+						<a href="#main-page" class="button bg-dune text-black border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
+							enhance images
+						</a>
+						<a href="#support" class="button bg-rich-black text-dune border-rich-black border-2 font-semibold py-2 px-4 hover:scale-105 hover:shadow-rich-black">
+							support author
+						</a>
+					</div>
 				</div>
-			</div>
-			<div class="w-full md:w-1/2 px-4 flex item-center justify-center">
-				<div class="text-center content-center">
+				<div class="w-full md:w-1/2 px-4 flex item-center justify-center">
+					<div class="text-center content-center">
 						<p class="text-6xl md:text-8xl font-bold counter" hx-get="/api/stats/image/count-pretty" hx-trigger="load">0</p>
-					<p class="text-lg text-rich-black">images processed</p>
+						<p class="text-lg text-rich-black">images processed</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	}
 }

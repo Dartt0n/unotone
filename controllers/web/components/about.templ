@@ -1,8 +1,10 @@
 package components
 
 templ About() {
-	<div id="about" class="h-screen mx-16 px-4 pt-16 bg-dune text-rich-black">
-		<h1 class="text-6xl">about</h1>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam assumenda ullam iusto neque dolorem sequi ex rerum reprehenderit est, sed repudiandae harum voluptatibus rem magni aliquid, quos atque debitis! Officiis cupiditate nihil architecto ad hic. Maiores id, hic reprehenderit expedita itaque neque, provident doloribus quis odio fuga enim tempore vitae consectetur. Aliquid nesciunt explicabo, veniam et obcaecati quas ut temporibus voluptatum nisi, perferendis molestias unde dignissimos modi numquam ab asperiores est repellat incidunt sit excepturi sed fugiat. Dignissimos alias, ipsam in at nisi, quis minus nam deserunt suscipit enim dolorem ab praesentium modi. Quasi quidem alias corrupti distinctio ea beatae?
-	</div>
+	@templ.NewOnceHandle().Once() {
+		<div id="about" class="h-screen mx-16 px-4 pt-16 bg-dune text-rich-black">
+			<h1 class="text-6xl">about</h1>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam assumenda ullam iusto neque dolorem sequi ex rerum reprehenderit est, sed repudiandae harum voluptatibus rem magni aliquid, quos atque debitis! Officiis cupiditate nihil architecto ad hic. Maiores id, hic reprehenderit expedita itaque neque, provident doloribus quis odio fuga enim tempore vitae consectetur. Aliquid nesciunt explicabo, veniam et obcaecati quas ut temporibus voluptatum nisi, perferendis molestias unde dignissimos modi numquam ab asperiores est repellat incidunt sit excepturi sed fugiat. Dignissimos alias, ipsam in at nisi, quis minus nam deserunt suscipit enim dolorem ab praesentium modi. Quasi quidem alias corrupti distinctio ea beatae?
+		</div>
+	}
 }
