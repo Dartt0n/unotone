@@ -71,7 +71,8 @@ func main() {
 		r.Get("/", webCtrl.Index)
 		r.Get("/*", webCtrl.Static)
 
-		r.Get("/api/stats/count/images", statsCtrl.CountImages)
+		r.Get("/api/stats/image/count-pretty", statsCtrl.GetImageCountPretty)
+		r.Get("/api/stats/image/count-raw", statsCtrl.GetImageCountRaw)
 	})
 
 	// run

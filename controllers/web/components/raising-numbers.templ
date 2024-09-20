@@ -1,0 +1,26 @@
+package components
+
+import "fmt"
+
+templ RaisingNumbers(number string) {
+	@templ.Raw(fmt.Sprintf(`<style>
+    @property --num {
+        syntax: '<integer>';
+        initial-value: 0;
+        inherits: false;
+    }
+
+    @keyframes counter {
+        from {
+            --num: 0;
+        }
+
+        to {
+            --num: %s;
+        }
+    }
+    </style>`, number))
+	<span class="animate-[counter_2s_ease_forwards] [counter-set:_num_var(--num)] before:content-[counter(num)]">
+		<span class="sr-only">{ number }</span>
+	</span>
+}
